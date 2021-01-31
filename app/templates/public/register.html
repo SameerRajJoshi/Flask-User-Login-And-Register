@@ -1,0 +1,56 @@
+{% extends "public/layout.html" %}
+{% block content %}
+<div class="register-photo">
+    <div class="form-container" style="width: 361px;">
+        <form method="POST" action="">
+            <h2 class="text-center"><strong>Create</strong> an account.</h2>
+            <div class="form-group">
+                {{ form.username.label }}
+                {{ form.username(class="form-control") }}
+                {% for error in form.username.errors %}
+                <span style="color:red;">
+                    {{error}}
+                </span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.email.label }}
+                {{ form.email(class="form-control") }}
+                {% for error in form.email.errors %}
+                <span style="color:red;">
+                    {{error}}
+                </span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.password.label }}
+                {{ form.password(class="form-control") }}
+                {% for error in form.password.errors %}
+                <span style="color:red;">
+                    {{error}}
+                </span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.confirm_password.label }}
+                {{ form.confirm_password(class="form-control") }}
+                {% for error in form.confirm_password.errors %}
+                <span style="color:red;">
+                    {{error}}
+                </span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    {{ form.accept_tos(class="form-check-input") }}
+                    {{ form.accept_tos.label(class="form-check-label") }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form.submit(class_="btn btn-primary btn-block") }}
+            <a class="already" href="{{url_for('login')}}">You already have an account? Login here.</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
